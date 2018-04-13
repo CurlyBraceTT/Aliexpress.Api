@@ -1,6 +1,6 @@
 ﻿namespace Ali.Api.Parameters
 {
-    public struct GetAppPromotionProductParameters
+    public class GetAppPromotionProductParameters
     {
         public string ProductId { get; set; }
     }

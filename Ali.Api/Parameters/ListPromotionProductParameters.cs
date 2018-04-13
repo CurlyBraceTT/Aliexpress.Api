@@ -1,6 +1,6 @@
 ﻿namespace Ali.Api.Parameters
 {
-    public struct ListPromotionProductParameters
+    public class ListPromotionProductParameters
     {
         public const string DefaultFields = "productId,productTitle,productUrl,salePrice,originalPrice,imageUrl,evaluateScore";
 
@@ -25,7 +25,7 @@
         public string LocalCurrency { get; set; }
         public string Language { get; set; }
 
-        public ListPromotionProductParameters(string fields = DefaultFields) : this()
+        public ListPromotionProductParameters(string fields = DefaultFields)
         {
             Fields = fields;
         }

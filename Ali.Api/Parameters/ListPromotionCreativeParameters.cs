@@ -1,6 +1,6 @@
 ﻿namespace Ali.Api.Parameters
 {
-    public struct ListPromotionCreativeParameters
+    public class ListPromotionCreativeParameters
     {
         public string AppSignature { get; set; }
         public string Category { get; set; }

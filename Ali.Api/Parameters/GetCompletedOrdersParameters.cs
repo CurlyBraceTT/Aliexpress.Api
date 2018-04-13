@@ -2,7 +2,7 @@
 
 namespace Ali.Api.Parameters
 {
-    public struct GetCompletedOrdersParameters
+    public class GetCompletedOrdersParameters
     {
         public string AppSignature { get; set; }
         public DateTime? StartDate { get; set; }

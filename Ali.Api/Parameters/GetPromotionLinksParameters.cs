@@ -1,6 +1,6 @@
 ﻿namespace Ali.Api.Parameters
 {
-    public struct GetPromotionLinksParameters
+    public class GetPromotionLinksParameters
     {
         public const string DefaultFields = "trackingId,publisherId,promotionUrl";
 
@@ -8,7 +8,7 @@
         public string TrackingId { get; set; }
         public string Urls { get; set; }
 
-        public GetPromotionLinksParameters(string fields = DefaultFields) : this()
+        public GetPromotionLinksParameters(string fields = DefaultFields)
         {
             Fields = fields;
         }

@@ -1,6 +1,6 @@
 ﻿namespace Ali.Api.Parameters
 {
-    public struct ListSimilarProductsParameters
+    public class ListSimilarProductsParameters
     {
         public string ProductId { get; set; }
     }
