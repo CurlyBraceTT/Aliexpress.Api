@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Ali.Api.Model
 {
+    /// <summary>
+    /// Order Result
+    /// </summary>
     public class OrderResult
     {
         public DateTime OrderTime { get; set; }

@@ -1,5 +1,8 @@
 ﻿namespace Ali.Api.Parameters
 {
+    /// <summary>
+    /// ListPromotionCreative Parameters
+    /// </summary>
     public class ListPromotionCreativeParameters
     {
         public string AppSignature { get; set; }

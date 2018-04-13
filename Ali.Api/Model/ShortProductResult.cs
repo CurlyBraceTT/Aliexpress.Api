@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Ali.Api.Model
 {
+    /// <summary>
+    /// ShortProduct Result
+    /// </summary>
     public class ShortProductResult
     {
         public long ProductId { get; set; }

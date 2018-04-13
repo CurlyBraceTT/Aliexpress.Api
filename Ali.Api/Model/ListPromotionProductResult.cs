@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Ali.Api.Model
 {
+    /// <summary>
+    /// ListPromotionProduct Result
+    /// </summary>
     public class ListPromotionProductResult
     {
         public int TotalResults { get; set; }

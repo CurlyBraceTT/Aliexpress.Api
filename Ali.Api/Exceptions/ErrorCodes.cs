@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Ali.Api.Exceptions
 {
+    /// <summary>
+    /// Error Code for the Internal Api exceptions
+    /// </summary>
     public class ErrorCodes
     {
         public const int SucceedCode = 20010000;
         public static Dictionary<int, string> Messages;
 
+        /// <summary>
+        /// Gets the error message by the code.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <returns>Error Message</returns>
         public static string GetMessage(int code)
         {
             if (Messages.ContainsKey(code))
@@ -19,6 +25,9 @@ namespace Ali.Api.Exceptions
             return "Unexpected error";
         }
 
+        /// <summary>
+        /// Initializes the <see cref="ErrorCodes"/> class.
+        /// </summary>
         static ErrorCodes()
         {
             Messages = new Dictionary<int, string>()

@@ -1,5 +1,8 @@
 ﻿namespace Ali.Api.Parameters
 {
+    /// <summary>
+    /// ListPromotionProduct Parameters
+    /// </summary>
     public class ListPromotionProductParameters
     {
         public const string DefaultFields = "productId,productTitle,productUrl,salePrice,originalPrice,imageUrl,evaluateScore";

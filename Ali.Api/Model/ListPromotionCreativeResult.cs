@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Ali.Api.Model
 {
+    /// <summary>
+    /// ListPromotionCreative Result
+    /// </summary>
     public class ListPromotionCreativeResult
     {
         public int TotalResults { get; set; }

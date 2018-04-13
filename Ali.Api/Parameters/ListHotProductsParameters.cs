@@ -1,5 +1,8 @@
 ﻿namespace Ali.Api.Parameters
 {
+    /// <summary>
+    /// ListHotProducts Parameters
+    /// </summary>
     public class ListHotProductsParameters
     {
         public string Language { get; set; }

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Ali.Api.Model
 {
+    /// <summary>
+    /// GetPromotionLinks Result
+    /// </summary>
     public class GetPromotionLinksResult
     {
         public int TotalResults { get; set; }

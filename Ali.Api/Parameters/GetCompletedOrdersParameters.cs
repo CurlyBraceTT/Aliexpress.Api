@@ -2,6 +2,9 @@
 
 namespace Ali.Api.Parameters
 {
+    /// <summary>
+    /// GetCompletedOrders Parameters
+    /// </summary>
     public class GetCompletedOrdersParameters
     {
         public string AppSignature { get; set; }

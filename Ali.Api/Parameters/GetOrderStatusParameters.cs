@@ -1,5 +1,8 @@
 ﻿namespace Ali.Api.Parameters
 {
+    /// <summary>
+    /// GetOrderStatus Parameters
+    /// </summary>
     public class GetOrderStatusParameters
     {
         public string AppSignature { get; set; }

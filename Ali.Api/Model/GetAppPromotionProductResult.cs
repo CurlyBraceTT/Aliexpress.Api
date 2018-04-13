@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Ali.Api.Model
+﻿namespace Ali.Api.Model
 {
+    /// <summary>
+    /// GetAppPromotionProduct Result
+    /// </summary>
     public class GetAppPromotionProductResult
     {
         public long ProductId { get; set; }

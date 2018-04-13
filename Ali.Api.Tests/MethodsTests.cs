@@ -9,6 +9,9 @@ using System;
 
 namespace Ali.Api.Tests
 {
+    /// <summary>
+    /// Tests for the Aliexpress Api
+    /// </summary>
     public class MethodsTests
     {
         public const string CONFIG_FILE_NAME = "settings.json";
@@ -57,6 +60,9 @@ namespace Ali.Api.Tests
             });
         }
 
+        /// <summary>
+        /// Tests list of the product
+        /// </summary>
         [Fact]
         public async Task ProductsList()
         {
@@ -88,6 +94,9 @@ namespace Ali.Api.Tests
             Assert.True(item.ProductId == testId);
         }
 
+        /// <summary>
+        /// Tests the orders the list.
+        /// </summary>
         [Fact]
         public async Task OrdersList()
         {
@@ -124,6 +133,10 @@ namespace Ali.Api.Tests
             Assert.True(true);
         }
 
+        /// <summary>
+        /// Tests for the Hot products.
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task HotProducts()
         {
@@ -136,6 +149,10 @@ namespace Ali.Api.Tests
             Assert.True(result.TotalResults > 0);
         }
 
+        /// <summary>
+        /// Tests Similars and promotions products.
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task SimilarAndPromotionsProducts()
         {

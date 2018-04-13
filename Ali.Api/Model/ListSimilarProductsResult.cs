@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Ali.Api.Model
 {
+    /// <summary>
+    /// ListSimilarProducts Result
+    /// </summary>
     public class ListSimilarProductsResult
     {
         public int TotalResults { get; set; }

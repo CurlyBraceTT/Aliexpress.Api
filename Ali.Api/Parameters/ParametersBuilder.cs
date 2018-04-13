@@ -5,11 +5,20 @@ using System.Text;
 
 namespace Ali.Api.Parameters
 {
+    /// <summary>
+    /// Parameters builder
+    /// </summary>
     public class ParametersBuilder
     {
         public ParametersBuilder()
         { }
 
+        /// <summary>
+        /// Builds the specified parameters.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
         public virtual string Build<T>(T parameters)
         {
             var result = new StringBuilder();

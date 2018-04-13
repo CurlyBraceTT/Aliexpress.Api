@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Ali.Api
+﻿namespace Ali.Api
 {
+    /// <summary>
+    /// Api Methods Urls
+    /// </summary>
     public class AliApiMethods
     {
         public const string ListPromotionProduct = "api.listPromotionProduct";

@@ -1,9 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Ali.Api.Exceptions
 {
+    /// <summary>
+    /// Aliexpress Api Exception
+    /// </summary>
+    /// <seealso cref="System.Exception" />
     public class AliApiException : Exception
     {
         public int Code { get; set; }

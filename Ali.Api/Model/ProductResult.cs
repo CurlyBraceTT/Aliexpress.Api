@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Ali.Api.Model
 {
+    /// <summary>
+    /// Product Result
+    /// </summary>
     public class ProductResult
     {
         public long ProductId { get; set; }
