@@ -11,6 +11,7 @@ namespace Ali.Api.Tests
 {
     public class MethodsTests
     {
+        public const string CONFIG_FILE_NAME = "settings.json";
         private readonly IAliApiClient _client;
 
         public readonly string AppKey;
@@ -22,12 +23,11 @@ namespace Ali.Api.Tests
             IConfigurationRoot config = null;
 
             // Work around for https://github.com/xunit/xunit/issues/1093
-            // You can't debug your tests without 
             try
             {
                 config = new ConfigurationBuilder()
                     .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("settings.json")
+                    .AddJsonFile(CONFIG_FILE_NAME)
                     .Build();
             }
             catch(Exception)
@@ -37,7 +37,7 @@ namespace Ali.Api.Tests
 
                 config = new ConfigurationBuilder()
                     .SetBasePath(directory)
-                    .AddJsonFile("settings.json")
+                    .AddJsonFile(CONFIG_FILE_NAME)
                     .Build();
             }
 

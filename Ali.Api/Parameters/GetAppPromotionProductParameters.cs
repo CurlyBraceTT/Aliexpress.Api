@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Ali.Api.Parameters
+﻿namespace Ali.Api.Parameters
 {
-    public class GetAppPromotionProductParameters : ParametersCollection
+    public struct GetAppPromotionProductParameters
     {
         public string ProductId { get; set; }
     }

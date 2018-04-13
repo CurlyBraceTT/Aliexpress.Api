@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Ali.Api.Parameters
+﻿namespace Ali.Api.Parameters
 {
-    public class ListPromotionCreativeParameters : ParametersCollection
+    public struct ListPromotionCreativeParameters
     {
         public string AppSignature { get; set; }
         public string Category { get; set; }

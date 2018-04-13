@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Ali.Api.Parameters
+﻿namespace Ali.Api.Parameters
 {
-    public class GetItemByOrderNumbersParameters : ParametersCollection
+    public struct GetItemByOrderNumbersParameters
     {
         public string AppSignature { get; set; }
         public string OrderNumbers { get; set; }

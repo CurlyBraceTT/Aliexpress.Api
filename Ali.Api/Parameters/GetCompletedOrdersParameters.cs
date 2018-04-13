@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Ali.Api.Parameters
 {
-    public class GetCompletedOrdersParameters : ParametersCollection
+    public struct GetCompletedOrdersParameters
     {
         public string AppSignature { get; set; }
         public DateTime? StartDate { get; set; }

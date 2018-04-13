@@ -22,7 +22,7 @@ namespace Ali.Api
         Task<ListSimilarProductsResult> ListSimilarProducts(ListSimilarProductsParameters parameters);
         Task<GetAppPromotionProductResult> GetAppPromotionProduct(GetAppPromotionProductParameters parameters);
         
-        Task<T> ApiCall<T>(string method, ParametersCollection parameters);
+        Task<T> ApiCall<T, TParam>(string method, TParam parameters);
         Task<T> RawApiCall<T>(string url);
     }
 
@@ -38,6 +38,8 @@ namespace Ali.Api
         public string Version { get; set; }
         // portals.open
         public string Namespace { get; set; }
+        // Builder for parameters
+        public ParametersBuilder ParametersBuilder { get; set; }
 
         public AliSettingsProvider()
         {
@@ -45,6 +47,7 @@ namespace Ali.Api
             Protocol = "param2";
             Version = 2.ToString();
             Namespace = "portals.open";
+            ParametersBuilder = new ParametersBuilder();
         }
 
         public AliSettingsProvider(string appKey) : this()
@@ -64,55 +67,55 @@ namespace Ali.Api
 
         public async Task<ListPromotionProductResult> ListPromotionProduct(ListPromotionProductParameters parameters)
         {
-            return await ApiCall<ListPromotionProductResult>(AliApiMethods.ListPromotionProduct, parameters);
+            return await ApiCall<ListPromotionProductResult, ListPromotionProductParameters>(AliApiMethods.ListPromotionProduct, parameters);
         }
 
         public async Task<GetPromotionLinksResult> GetPromotionLinks(GetPromotionLinksParameters parameters)
         {
-            return await ApiCall<GetPromotionLinksResult>(AliApiMethods.GetPromotionLinks, parameters);
+            return await ApiCall<GetPromotionLinksResult, GetPromotionLinksParameters>(AliApiMethods.GetPromotionLinks, parameters);
         }
 
         public async Task<ProductResult> GetPromotionProductDetail(GetPromotionProductDetailParameters parameters)
         {
-            return await ApiCall<ProductResult>(AliApiMethods.GetPromotionProductDetail, parameters);
+            return await ApiCall<ProductResult, GetPromotionProductDetailParameters>(AliApiMethods.GetPromotionProductDetail, parameters);
         }
 
         public async Task<ListPromotionCreativeResult> ListPromotionCreative(ListPromotionCreativeParameters parameters)
         {
-            return await ApiCall<ListPromotionCreativeResult>(AliApiMethods.ListPromotionCreative, parameters);
+            return await ApiCall<ListPromotionCreativeResult, ListPromotionCreativeParameters>(AliApiMethods.ListPromotionCreative, parameters);
         }
 
         public async Task<GetCompletedOrdersResult> GetCompletedOrders(GetCompletedOrdersParameters parameters)
         {
-            return await ApiCall<GetCompletedOrdersResult>(AliApiMethods.GetCompletedOrders, parameters);
+            return await ApiCall<GetCompletedOrdersResult, GetCompletedOrdersParameters>(AliApiMethods.GetCompletedOrders, parameters);
         }
 
         public async Task<GetOrderStatusResult> GetOrderStatus(GetOrderStatusParameters parameters)
         {
-            return await ApiCall<GetOrderStatusResult>(AliApiMethods.GetOrderStatus, parameters);
+            return await ApiCall<GetOrderStatusResult, GetOrderStatusParameters>(AliApiMethods.GetOrderStatus, parameters);
         }
 
         public async Task<GetItemByOrderNumbersResult> GetItemByOrderNumbers(GetItemByOrderNumbersParameters parameters)
         {
-            return await ApiCall<GetItemByOrderNumbersResult>(AliApiMethods.GetItemByOrderNumbers, parameters);
+            return await ApiCall<GetItemByOrderNumbersResult, GetItemByOrderNumbersParameters>(AliApiMethods.GetItemByOrderNumbers, parameters);
         }
 
         public async Task<ListHotProductsResult> ListHotProducts(ListHotProductsParameters parameters)
         {
-            return await ApiCall<ListHotProductsResult>(AliApiMethods.ListHotProducts, parameters);
+            return await ApiCall<ListHotProductsResult, ListHotProductsParameters>(AliApiMethods.ListHotProducts, parameters);
         }
 
         public async Task<ListSimilarProductsResult> ListSimilarProducts(ListSimilarProductsParameters parameters)
         {
-            return await ApiCall<ListSimilarProductsResult>(AliApiMethods.ListSimilarProducts, parameters);
+            return await ApiCall<ListSimilarProductsResult, ListSimilarProductsParameters>(AliApiMethods.ListSimilarProducts, parameters);
         }
 
         public async Task<GetAppPromotionProductResult> GetAppPromotionProduct(GetAppPromotionProductParameters parameters)
         {
-            return await ApiCall<GetAppPromotionProductResult>(AliApiMethods.GetAppPromotionProduct, parameters);
+            return await ApiCall<GetAppPromotionProductResult, GetAppPromotionProductParameters>(AliApiMethods.GetAppPromotionProduct, parameters);
         }
 
-        public async Task<T> ApiCall<T>(string method, ParametersCollection parameters)
+        public async Task<T> ApiCall<T, TParam>(string method, TParam parameters)
         {
             var url = BuildUrl(method, parameters);
             return await RawApiCall<T>(url);
@@ -160,10 +163,10 @@ namespace Ali.Api
             return client;
         }
 
-        protected string BuildUrl(string method, ParametersCollection parameters)
+        protected string BuildUrl<TParam>(string method, TParam parameters)
         {
             return string.Format("https://{0}/openapi/{1}/{2}/portals.open/{3}/{4}?{5}", _settings.DomainName, _settings.Protocol, 
-                _settings.Version, method, _settings.AppKey, parameters.Build());
+                _settings.Version, method, _settings.AppKey, _settings.ParametersBuilder.Build(parameters));
         }
     }
 }

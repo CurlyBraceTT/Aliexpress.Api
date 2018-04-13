@@ -1,20 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Reflection;
 using System.Text;
 
 namespace Ali.Api.Parameters
 {
-    public abstract class ParametersCollection
+    public class ParametersBuilder
     {
-        public virtual string Build()
+        public ParametersBuilder()
+        { }
+
+        public virtual string Build<T>(T parameters)
         {
             var result = new StringBuilder();
-            var properties = this.GetType().GetProperties();
+            var properties = typeof(T).GetProperties();
             foreach (var property in properties)
             {
-                var value = property.GetValue(this);
+                var value = property.GetValue(parameters);
 
                 if (value == null || string.IsNullOrEmpty(value.ToString()))
                 {

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Ali.Api.Parameters
+﻿namespace Ali.Api.Parameters
 {
-    public class ListHotProductsParameters : ParametersCollection
+    public struct ListHotProductsParameters
     {
         public string Language { get; set; }
         public string CategoryId { get; set; }

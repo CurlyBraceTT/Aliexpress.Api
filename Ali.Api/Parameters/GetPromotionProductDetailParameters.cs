@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Ali.Api.Parameters
+﻿namespace Ali.Api.Parameters
 {
-    public class GetPromotionProductDetailParameters : ParametersCollection
+    public struct GetPromotionProductDetailParameters
     {
         public const string DefaultFields = "productId,productTitle,productUrl,salePrice,originalPrice,imageUrl,evaluateScore";
 
@@ -13,7 +9,7 @@ namespace Ali.Api.Parameters
         public string LocalCurrency { get; set; }
         public string Language { get; set; }
 
-        public GetPromotionProductDetailParameters(string fields = DefaultFields)
+        public GetPromotionProductDetailParameters(string fields = DefaultFields) : this()
         {
             Fields = fields;
         }
