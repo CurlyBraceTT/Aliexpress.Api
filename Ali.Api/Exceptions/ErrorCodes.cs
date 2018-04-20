@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Ali.Api.Exceptions
+namespace Aliexpress.Api.Exceptions
 {
     /// <summary>
     /// Error Code for the Internal Api exceptions

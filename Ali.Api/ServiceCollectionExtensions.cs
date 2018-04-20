@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace Ali.Api
+namespace Aliexpress.Api
 {
     /// <summary>
     /// Service Dependencies for Ali Api Client
@@ -14,11 +14,11 @@ namespace Ali.Api
         /// <param name="services">The services.</param>
         /// <param name="provider">The provider.</param>
         /// <returns>Services</returns>
-        public static IServiceCollection AddAliClient(this IServiceCollection services, Action<AliSettingsProvider> provider)
+        public static IServiceCollection AddAliClient(this IServiceCollection services, Action<AliexpressSettingsProvider> provider)
         {
-            var defaults = new AliSettingsProvider();
+            var defaults = new AliexpressSettingsProvider();
             provider.Invoke(defaults);
-            services.AddSingleton<IAliApiClient>(client => new AliApiClient(defaults));
+            services.AddSingleton<IAliexpressApiClient>(client => new AliexpressApiClient(defaults));
             return services;
         }
     }

@@ -3,7 +3,7 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 
-namespace Ali.Api.Parameters
+namespace Aliexpress.Api.Parameters
 {
     /// <summary>
     /// Parameters builder

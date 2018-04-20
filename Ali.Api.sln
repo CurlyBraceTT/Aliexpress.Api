@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ali.Api", "Ali.Api\Ali.Api.csproj", "{B2F931DD-89C2-43F1-863C-6E20BB39BBE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aliexpress.Api", "Ali.Api\Aliexpress.Api.csproj", "{B2F931DD-89C2-43F1-863C-6E20BB39BBE5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ali.Api.Tests", "Ali.Api.Tests\Ali.Api.Tests.csproj", "{5039D546-46A4-4517-8BDD-FA1DB596A3A7}"
 EndProject
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {389618B2-3531-4BB1-8B5B-52FB96D3751F}
 	EndGlobalSection
 EndGlobal

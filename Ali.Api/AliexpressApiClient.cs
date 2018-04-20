@@ -1,6 +1,6 @@
-﻿using Ali.Api.Exceptions;
-using Ali.Api.Model;
-using Ali.Api.Parameters;
+﻿using Aliexpress.Api.Exceptions;
+using Aliexpress.Api.Model;
+using Aliexpress.Api.Parameters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
@@ -8,14 +8,14 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Ali.Api
+namespace Aliexpress.Api
 {
     /// <summary>
     /// Aliexpress Api client interface
     /// Docs are availible here after registration
     /// https://portals.aliexpress.com/help/help_center_API.html
     /// </summary>
-    public interface IAliApiClient
+    public interface IAliexpressApiClient
     {
         /// <summary>
         /// Get the promotion products.
@@ -107,7 +107,7 @@ namespace Ali.Api
         Task<T> RawApiCall<T>(string url);
     }
 
-    public class AliSettingsProvider
+    public class AliexpressSettingsProvider
     {
         // gw.api.alibaba.com
         public string DomainName { get; set; }
@@ -122,7 +122,7 @@ namespace Ali.Api
         // Builder for parameters
         public ParametersBuilder ParametersBuilder { get; set; }
 
-        public AliSettingsProvider()
+        public AliexpressSettingsProvider()
         {
             DomainName = "gw.api.alibaba.com";
             Protocol = "param2";
@@ -131,7 +131,7 @@ namespace Ali.Api
             ParametersBuilder = new ParametersBuilder();
         }
 
-        public AliSettingsProvider(string appKey) : this()
+        public AliexpressSettingsProvider(string appKey) : this()
         {
             AppKey = appKey;
         }
@@ -142,16 +142,16 @@ namespace Ali.Api
     /// Docs are availible here after registration
     /// https://portals.aliexpress.com/help/help_center_API.html
     /// </summary>
-    /// <seealso cref="Ali.Api.IAliApiClient" />
-    public class AliApiClient : IAliApiClient
+    /// <seealso cref="Aliexpress.Api.IAliexpressApiClient" />
+    public class AliexpressApiClient : IAliexpressApiClient
     {
-        private readonly AliSettingsProvider _settings;
+        private readonly AliexpressSettingsProvider _settings;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AliApiClient"/> class.
+        /// Initializes a new instance of the <see cref="AliexpressApiClient"/> class.
         /// </summary>
         /// <param name="settingsProvider">The settings provider.</param>
-        public AliApiClient(AliSettingsProvider settingsProvider)
+        public AliexpressApiClient(AliexpressSettingsProvider settingsProvider)
         {
             _settings = settingsProvider;
         }
@@ -165,7 +165,7 @@ namespace Ali.Api
         /// </returns>
         public async Task<ListPromotionProductResult> ListPromotionProduct(ListPromotionProductParameters parameters)
         {
-            return await ApiCall<ListPromotionProductResult, ListPromotionProductParameters>(AliApiMethods.ListPromotionProduct, parameters);
+            return await ApiCall<ListPromotionProductResult, ListPromotionProductParameters>(AliexpressApiMethods.ListPromotionProduct, parameters);
         }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace Ali.Api
         /// </returns>
         public async Task<GetPromotionLinksResult> GetPromotionLinks(GetPromotionLinksParameters parameters)
         {
-            return await ApiCall<GetPromotionLinksResult, GetPromotionLinksParameters>(AliApiMethods.GetPromotionLinks, parameters);
+            return await ApiCall<GetPromotionLinksResult, GetPromotionLinksParameters>(AliexpressApiMethods.GetPromotionLinks, parameters);
         }
 
         /// <summary>
@@ -189,7 +189,7 @@ namespace Ali.Api
         /// </returns>
         public async Task<ProductResult> GetPromotionProductDetail(GetPromotionProductDetailParameters parameters)
         {
-            return await ApiCall<ProductResult, GetPromotionProductDetailParameters>(AliApiMethods.GetPromotionProductDetail, parameters);
+            return await ApiCall<ProductResult, GetPromotionProductDetailParameters>(AliexpressApiMethods.GetPromotionProductDetail, parameters);
         }
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace Ali.Api
         /// </returns>
         public async Task<ListPromotionCreativeResult> ListPromotionCreative(ListPromotionCreativeParameters parameters)
         {
-            return await ApiCall<ListPromotionCreativeResult, ListPromotionCreativeParameters>(AliApiMethods.ListPromotionCreative, parameters);
+            return await ApiCall<ListPromotionCreativeResult, ListPromotionCreativeParameters>(AliexpressApiMethods.ListPromotionCreative, parameters);
         }
 
         /// <summary>
@@ -213,7 +213,7 @@ namespace Ali.Api
         /// </returns>
         public async Task<GetCompletedOrdersResult> GetCompletedOrders(GetCompletedOrdersParameters parameters)
         {
-            return await ApiCall<GetCompletedOrdersResult, GetCompletedOrdersParameters>(AliApiMethods.GetCompletedOrders, parameters);
+            return await ApiCall<GetCompletedOrdersResult, GetCompletedOrdersParameters>(AliexpressApiMethods.GetCompletedOrders, parameters);
         }
 
         /// <summary>
@@ -225,7 +225,7 @@ namespace Ali.Api
         /// </returns>
         public async Task<GetOrderStatusResult> GetOrderStatus(GetOrderStatusParameters parameters)
         {
-            return await ApiCall<GetOrderStatusResult, GetOrderStatusParameters>(AliApiMethods.GetOrderStatus, parameters);
+            return await ApiCall<GetOrderStatusResult, GetOrderStatusParameters>(AliexpressApiMethods.GetOrderStatus, parameters);
         }
 
         /// <summary>
@@ -237,7 +237,7 @@ namespace Ali.Api
         /// </returns>
         public async Task<GetItemByOrderNumbersResult> GetItemByOrderNumbers(GetItemByOrderNumbersParameters parameters)
         {
-            return await ApiCall<GetItemByOrderNumbersResult, GetItemByOrderNumbersParameters>(AliApiMethods.GetItemByOrderNumbers, parameters);
+            return await ApiCall<GetItemByOrderNumbersResult, GetItemByOrderNumbersParameters>(AliexpressApiMethods.GetItemByOrderNumbers, parameters);
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace Ali.Api
         /// </returns>
         public async Task<ListHotProductsResult> ListHotProducts(ListHotProductsParameters parameters)
         {
-            return await ApiCall<ListHotProductsResult, ListHotProductsParameters>(AliApiMethods.ListHotProducts, parameters);
+            return await ApiCall<ListHotProductsResult, ListHotProductsParameters>(AliexpressApiMethods.ListHotProducts, parameters);
         }
 
         /// <summary>
@@ -275,7 +275,7 @@ namespace Ali.Api
         /// </returns>
         public async Task<GetAppPromotionProductResult> GetAppPromotionProduct(GetAppPromotionProductParameters parameters)
         {
-            return await ApiCall<GetAppPromotionProductResult, GetAppPromotionProductParameters>(AliApiMethods.GetAppPromotionProduct, parameters);
+            return await ApiCall<GetAppPromotionProductResult, GetAppPromotionProductParameters>(AliexpressApiMethods.GetAppPromotionProduct, parameters);
         }
 
         /// <summary>

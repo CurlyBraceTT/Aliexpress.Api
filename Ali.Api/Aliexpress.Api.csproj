@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Aliexpress.Api</PackageId>
+    <Authors>Sergey Lebedev</Authors>
+    <Company />
+    <Product>Aliexpress.Api</Product>
+    <Description>Aliexpress Api high level client</Description>
+    <PackageProjectUrl>https://github.com/CurlyBraceTT/Aliexpress.Api</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/CurlyBraceTT/Aliexpress.Api</RepositoryUrl>
+    <PackageTags>aliexpress api asp-net asp-net-core core</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="NuGet.CommandLine" Version="4.6.2" />
+  </ItemGroup>
+
+</Project>

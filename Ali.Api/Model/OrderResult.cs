@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ali.Api.Model
+namespace Aliexpress.Api.Model
 {
     /// <summary>
     /// Order Result

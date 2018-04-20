@@ -1,9 +1,9 @@
-﻿namespace Ali.Api
+﻿namespace Aliexpress.Api
 {
     /// <summary>
     /// Api Methods Urls
     /// </summary>
-    public class AliApiMethods
+    public class AliexpressApiMethods
     {
         public const string ListPromotionProduct = "api.listPromotionProduct";
         public const string GetPromotionLinks = "api.getPromotionLinks";

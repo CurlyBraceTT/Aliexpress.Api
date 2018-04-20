@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ali.Api.Parameters
+namespace Aliexpress.Api.Parameters
 {
     /// <summary>
     /// GetCompletedOrders Parameters

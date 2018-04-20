@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ali.Api.Exceptions
+namespace Aliexpress.Api.Exceptions
 {
     /// <summary>
     /// Aliexpress Api Exception

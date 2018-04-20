@@ -1,4 +1,4 @@
-using Ali.Api.Parameters;
+using Aliexpress.Api.Parameters;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using System.Threading.Tasks;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System;
 
-namespace Ali.Api.Tests
+namespace Aliexpress.Api.Tests
 {
     /// <summary>
     /// Tests for the Aliexpress Api
@@ -15,7 +15,7 @@ namespace Ali.Api.Tests
     public class MethodsTests
     {
         public const string CONFIG_FILE_NAME = "settings.json";
-        private readonly IAliApiClient _client;
+        private readonly IAliexpressApiClient _client;
 
         public readonly string AppKey;
         public readonly string TrackingId;
@@ -56,7 +56,7 @@ namespace Ali.Api.Tests
             TrackingId = config["Ali:TrackingId"];
             AppSignature = config["Ali:AppSignature"];
 
-            _client = new AliApiClient(new AliSettingsProvider
+            _client = new AliexpressApiClient(new AliexpressSettingsProvider
             {
                 AppKey = AppKey
             });

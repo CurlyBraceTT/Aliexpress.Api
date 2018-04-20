@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Ali.Api.Model
+namespace Aliexpress.Api.Model
 {
     /// <summary>
     /// GetOrderStatus Result

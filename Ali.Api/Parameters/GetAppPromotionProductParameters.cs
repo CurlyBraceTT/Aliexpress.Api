@@ -1,4 +1,4 @@
-﻿namespace Ali.Api.Parameters
+﻿namespace Aliexpress.Api.Parameters
 {
     /// <summary>
     /// GetAppPromotionProduct Parameters

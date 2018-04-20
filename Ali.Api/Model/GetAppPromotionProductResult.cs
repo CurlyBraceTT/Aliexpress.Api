@@ -1,4 +1,4 @@
-﻿namespace Ali.Api.Model
+﻿namespace Aliexpress.Api.Model
 {
     /// <summary>
     /// GetAppPromotionProduct Result

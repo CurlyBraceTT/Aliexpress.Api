@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ali.Api.Model
+namespace Aliexpress.Api.Model
 {
     /// <summary>
     /// GetPromotionLinks Result
