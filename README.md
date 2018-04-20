@@ -3,7 +3,7 @@
 Aliexpress Api high level client written on C#
 
 ## About
-* Build on Asp.net core 1.1
+* Build on Asp.net core 2.0
 * Wraps all results into strong-typed models
 * Parses API exceptions
 * Tests included
@@ -29,9 +29,9 @@ Then client will be injected, for example simple MVC Controller:
 [Route("api/[controller]")]
 public class AliController : Controller
 {
-    private readonly IAliApiClient _aliClient;
+    private readonly IAliexpressApiClient _aliClient;
 
-    public AliController(IAliApiClient aliClient)
+    public AliController(IAliexpressApiClient aliClient)
     {
         _logger = logger;
         _aliClient = aliClient;
