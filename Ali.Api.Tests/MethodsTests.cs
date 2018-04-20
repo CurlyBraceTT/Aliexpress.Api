@@ -30,7 +30,9 @@ namespace Ali.Api.Tests
             {
                 config = new ConfigurationBuilder()
                     .SetBasePath(Directory.GetCurrentDirectory())
+                    // Order is essential here - we are overriding local json config with user secrets
                     .AddJsonFile(CONFIG_FILE_NAME)
+                    .AddUserSecrets<MethodsTests>()
                     .Build();
             }
             catch(Exception)
@@ -98,7 +100,7 @@ namespace Ali.Api.Tests
         /// Tests the orders the list.
         /// </summary>
         [Fact]
-        public async Task OrdersList()
+        public async Task Orders()
         {
             var orders = await _client.GetCompletedOrders(new GetCompletedOrdersParameters
             {
@@ -120,12 +122,18 @@ namespace Ali.Api.Tests
 
                 Assert.True(statusOrders.TotalResults > 0);
 
-                var items = await _client.GetOrderStatus(new GetOrderStatusParameters
+                var status = await _client.GetOrderStatus(new GetOrderStatusParameters
                 {
                     AppSignature = AppSignature,
                     OrderNumbers = string.Join(",", orders.Orders.Select(order => order.OrderNumber))
                 });
+                Assert.True(status.TotalResults > 0);
 
+                var items = await _client.GetItemByOrderNumbers(new GetItemByOrderNumbersParameters 
+                {
+                    AppSignature = AppSignature,
+                    OrderNumbers = string.Join(",", orders.Orders.Select(order => order.OrderNumber))
+                });
                 Assert.True(items.TotalResults > 0);
             }
 
@@ -150,11 +158,10 @@ namespace Ali.Api.Tests
         }
 
         /// <summary>
-        /// Tests Similars and promotions products.
+        /// Tests promotions products.
         /// </summary>
-        /// <returns></returns>
         [Fact]
-        public async Task SimilarAndPromotionsProducts()
+        public async Task PromotionsProducts()
         {
             var result = await _client.ListPromotionProduct(new ListPromotionProductParameters
             {
@@ -162,13 +169,15 @@ namespace Ali.Api.Tests
             });
             Assert.True(result.TotalResults > 0);
 
-            var testId = result.Products.First().ProductId;
+            var testId = 32851732627;// result.Products.First().ProductId;
 
+            /*
             var similar = await _client.ListSimilarProducts(new ListSimilarProductsParameters
             {
                 ProductId = testId.ToString()
             });
             Assert.True(similar.TotalResults > 0);
+            */
 
             var appPromotions = await _client.GetAppPromotionProduct(new GetAppPromotionProductParameters
             {
@@ -176,6 +185,21 @@ namespace Ali.Api.Tests
             });
             // Assert if no exceptions
             Assert.True(true);
+        }
+
+        /// <summary>
+        /// Tests promotions creative products.
+        /// </summary>
+        [Fact]
+        public async Task ListPromotionCreative()
+        {
+            var result = await _client.ListPromotionCreative(new ListPromotionCreativeParameters
+            {
+                AppSignature = AppSignature,
+                Category = "all",
+                Language = "en"
+            });
+            Assert.True(result.TotalResults > 0);
         }
     }
 }

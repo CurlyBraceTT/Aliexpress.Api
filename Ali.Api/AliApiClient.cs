@@ -4,6 +4,7 @@ using Ali.Api.Parameters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -77,6 +78,7 @@ namespace Ali.Api
         /// </summary>
         /// <param name="parameters">The parameters.</param>
         /// <returns>Similar Products List</returns>
+        [Obsolete("This method was removed from the API")]
         Task<ListSimilarProductsResult> ListSimilarProducts(ListSimilarProductsParameters parameters);
 
         /// <summary>
@@ -257,9 +259,11 @@ namespace Ali.Api
         /// <returns>
         /// Similar Products List
         /// </returns>
+        [Obsolete("Method was removed from the API. Function just returns empty result")]
         public async Task<ListSimilarProductsResult> ListSimilarProducts(ListSimilarProductsParameters parameters)
         {
-            return await ApiCall<ListSimilarProductsResult, ListSimilarProductsParameters>(AliApiMethods.ListSimilarProducts, parameters);
+            return await Task.FromResult(new ListSimilarProductsResult());
+            //return await ApiCall<ListSimilarProductsResult, ListSimilarProductsParameters>(AliApiMethods.ListSimilarProducts, parameters);
         }
 
         /// <summary>
